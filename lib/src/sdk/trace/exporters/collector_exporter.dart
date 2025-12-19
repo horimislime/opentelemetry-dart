@@ -54,6 +54,14 @@ class CollectorExporter implements sdk.SpanExporter {
     Uri uri,
     List<sdk.ReadOnlySpan> spans,
   ) async {
+    _log.info('Exporting ${spans.length} spans to $uri');
+    for (final span in spans) {
+      _log.info('Span: name=${span.name}, '
+          'traceId=${span.spanContext.traceId}, '
+          'spanId=${span.spanContext.spanId}, '
+          'startTime=${span.startTime}, '
+          'endTime=${span.endTime}');
+    }
     const maxRetries = 3;
     var retries = 0;
     // Retryable status from the spec: https://opentelemetry.io/docs/specs/otlp/#failures-1
@@ -71,6 +79,11 @@ class CollectorExporter implements sdk.SpanExporter {
         final response = timeoutMilliseconds > 0
             ? await request.timeout(Duration(milliseconds: timeoutMilliseconds))
             : await request;
+        
+        _log.info('Response status: ${response.statusCode}');
+        _log.info('Response body: ${response.body}');
+        _log.info('Response headers: ${response.headers}');
+
         if (response.statusCode == 200) {
           return;
         }
