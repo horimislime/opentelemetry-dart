@@ -17,10 +17,18 @@ export 'src/api/context/context_manager.dart'
     show globalContextManager, registerGlobalContextManager;
 export 'src/api/exporters/span_exporter.dart' show SpanExporter;
 export 'src/api/instrumentation_library.dart' show InstrumentationLibrary;
+export 'src/api/metrics/counter.dart' show Counter;
+export 'src/api/metrics/gauge.dart' show Gauge;
+export 'src/api/metrics/histogram.dart' show Histogram;
+export 'src/api/metrics/meter.dart' show Meter;
+export 'src/api/metrics/meter_provider.dart' show MeterProvider;
+export 'src/api/metrics/up_down_counter.dart' show UpDownCounter;
 export 'src/api/open_telemetry.dart'
     show
+        globalMeterProvider,
         globalTextMapPropagator,
         globalTracerProvider,
+        registerGlobalMeterProvider,
         registerGlobalTextMapPropagator,
         registerGlobalTracerProvider,
         trace,
