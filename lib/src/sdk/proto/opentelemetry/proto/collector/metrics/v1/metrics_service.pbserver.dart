@@ -1,6 +1,6 @@
 // This is a generated file - do not edit.
 //
-// Generated from opentelemetry/proto/collector/logs/v1/logs_service.proto.
+// Generated from opentelemetry/proto/collector/metrics/v1/metrics_service.proto.
 
 // @dart = 3.3
 
@@ -15,19 +15,19 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'logs_service.pb.dart' as $3;
-import 'logs_service.pbjson.dart';
+import 'metrics_service.pb.dart' as $3;
+import 'metrics_service.pbjson.dart';
 
-export 'logs_service.pb.dart';
+export 'metrics_service.pb.dart';
 
-abstract class LogsServiceBase extends $pb.GeneratedService {
-  $async.Future<$3.ExportLogsServiceResponse> export(
-      $pb.ServerContext ctx, $3.ExportLogsServiceRequest request);
+abstract class MetricsServiceBase extends $pb.GeneratedService {
+  $async.Future<$3.ExportMetricsServiceResponse> export(
+      $pb.ServerContext ctx, $3.ExportMetricsServiceRequest request);
 
   $pb.GeneratedMessage createRequest($core.String methodName) {
     switch (methodName) {
       case 'Export':
-        return $3.ExportLogsServiceRequest();
+        return $3.ExportMetricsServiceRequest();
       default:
         throw $core.ArgumentError('Unknown method: $methodName');
     }
@@ -37,13 +37,13 @@ abstract class LogsServiceBase extends $pb.GeneratedService {
       $core.String methodName, $pb.GeneratedMessage request) {
     switch (methodName) {
       case 'Export':
-        return export(ctx, request as $3.ExportLogsServiceRequest);
+        return export(ctx, request as $3.ExportMetricsServiceRequest);
       default:
         throw $core.ArgumentError('Unknown method: $methodName');
     }
   }
 
-  $core.Map<$core.String, $core.dynamic> get $json => LogsServiceBase$json;
+  $core.Map<$core.String, $core.dynamic> get $json => MetricsServiceBase$json;
   $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>>
-      get $messageJson => LogsServiceBase$messageJson;
+      get $messageJson => MetricsServiceBase$messageJson;
 }

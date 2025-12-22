@@ -1,6 +1,6 @@
 // This is a generated file - do not edit.
 //
-// Generated from opentelemetry/proto/common/v1/common.proto.
+// Generated from opentelemetry/proto/collector/metrics/v1/metrics_service.proto.
 
 // @dart = 3.3
 

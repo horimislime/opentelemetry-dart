@@ -1,16 +1,15 @@
-// Copyright 2021-2022 Workiva.
-// Licensed under the Apache License, Version 2.0. Please see https://github.com/Workiva/opentelemetry-dart/blob/master/LICENSE for more information
+// This is a generated file - do not edit.
+//
+// Generated from opentelemetry/proto/trace/v1/trace.proto.
 
-//
-//  Generated code. Do not modify.
-//  source: opentelemetry/proto/trace/v1/trace.proto
-//
-// @dart = 2.12
+// @dart = 3.3
 
 // ignore_for_file: annotate_overrides, camel_case_types, comment_references
-// ignore_for_file: constant_identifier_names, library_prefixes
-// ignore_for_file: non_constant_identifier_names, prefer_final_fields
-// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
+// ignore_for_file: constant_identifier_names
+// ignore_for_file: curly_braces_in_flow_control_structures
+// ignore_for_file: deprecated_member_use_from_same_package, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_relative_imports
+// ignore_for_file: unused_import
 
 import 'dart:convert' as $convert;
 import 'dart:core' as $core;
@@ -34,7 +33,14 @@ final $typed_data.Uint8List spanFlagsDescriptor = $convert.base64Decode(
 const TracesData$json = {
   '1': 'TracesData',
   '2': [
-    {'1': 'resource_spans', '3': 1, '4': 3, '5': 11, '6': '.opentelemetry.proto.trace.v1.ResourceSpans', '10': 'resourceSpans'},
+    {
+      '1': 'resource_spans',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.opentelemetry.proto.trace.v1.ResourceSpans',
+      '10': 'resourceSpans'
+    },
   ],
 };
 
@@ -47,8 +53,22 @@ final $typed_data.Uint8List tracesDataDescriptor = $convert.base64Decode(
 const ResourceSpans$json = {
   '1': 'ResourceSpans',
   '2': [
-    {'1': 'resource', '3': 1, '4': 1, '5': 11, '6': '.opentelemetry.proto.resource.v1.Resource', '10': 'resource'},
-    {'1': 'scope_spans', '3': 2, '4': 3, '5': 11, '6': '.opentelemetry.proto.trace.v1.ScopeSpans', '10': 'scopeSpans'},
+    {
+      '1': 'resource',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.opentelemetry.proto.resource.v1.Resource',
+      '10': 'resource'
+    },
+    {
+      '1': 'scope_spans',
+      '3': 2,
+      '4': 3,
+      '5': 11,
+      '6': '.opentelemetry.proto.trace.v1.ScopeSpans',
+      '10': 'scopeSpans'
+    },
     {'1': 'schema_url', '3': 3, '4': 1, '5': 9, '10': 'schemaUrl'},
   ],
   '9': [
@@ -67,8 +87,22 @@ final $typed_data.Uint8List resourceSpansDescriptor = $convert.base64Decode(
 const ScopeSpans$json = {
   '1': 'ScopeSpans',
   '2': [
-    {'1': 'scope', '3': 1, '4': 1, '5': 11, '6': '.opentelemetry.proto.common.v1.InstrumentationScope', '10': 'scope'},
-    {'1': 'spans', '3': 2, '4': 3, '5': 11, '6': '.opentelemetry.proto.trace.v1.Span', '10': 'spans'},
+    {
+      '1': 'scope',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.opentelemetry.proto.common.v1.InstrumentationScope',
+      '10': 'scope'
+    },
+    {
+      '1': 'spans',
+      '3': 2,
+      '4': 3,
+      '5': 11,
+      '6': '.opentelemetry.proto.trace.v1.Span',
+      '10': 'spans'
+    },
     {'1': 'schema_url', '3': 3, '4': 1, '5': 9, '10': 'schemaUrl'},
   ],
 };
@@ -90,16 +124,81 @@ const Span$json = {
     {'1': 'parent_span_id', '3': 4, '4': 1, '5': 12, '10': 'parentSpanId'},
     {'1': 'flags', '3': 16, '4': 1, '5': 7, '10': 'flags'},
     {'1': 'name', '3': 5, '4': 1, '5': 9, '10': 'name'},
-    {'1': 'kind', '3': 6, '4': 1, '5': 14, '6': '.opentelemetry.proto.trace.v1.Span.SpanKind', '10': 'kind'},
-    {'1': 'start_time_unix_nano', '3': 7, '4': 1, '5': 6, '10': 'startTimeUnixNano'},
-    {'1': 'end_time_unix_nano', '3': 8, '4': 1, '5': 6, '10': 'endTimeUnixNano'},
-    {'1': 'attributes', '3': 9, '4': 3, '5': 11, '6': '.opentelemetry.proto.common.v1.KeyValue', '10': 'attributes'},
-    {'1': 'dropped_attributes_count', '3': 10, '4': 1, '5': 13, '10': 'droppedAttributesCount'},
-    {'1': 'events', '3': 11, '4': 3, '5': 11, '6': '.opentelemetry.proto.trace.v1.Span.Event', '10': 'events'},
-    {'1': 'dropped_events_count', '3': 12, '4': 1, '5': 13, '10': 'droppedEventsCount'},
-    {'1': 'links', '3': 13, '4': 3, '5': 11, '6': '.opentelemetry.proto.trace.v1.Span.Link', '10': 'links'},
-    {'1': 'dropped_links_count', '3': 14, '4': 1, '5': 13, '10': 'droppedLinksCount'},
-    {'1': 'status', '3': 15, '4': 1, '5': 11, '6': '.opentelemetry.proto.trace.v1.Status', '10': 'status'},
+    {
+      '1': 'kind',
+      '3': 6,
+      '4': 1,
+      '5': 14,
+      '6': '.opentelemetry.proto.trace.v1.Span.SpanKind',
+      '10': 'kind'
+    },
+    {
+      '1': 'start_time_unix_nano',
+      '3': 7,
+      '4': 1,
+      '5': 6,
+      '10': 'startTimeUnixNano'
+    },
+    {
+      '1': 'end_time_unix_nano',
+      '3': 8,
+      '4': 1,
+      '5': 6,
+      '10': 'endTimeUnixNano'
+    },
+    {
+      '1': 'attributes',
+      '3': 9,
+      '4': 3,
+      '5': 11,
+      '6': '.opentelemetry.proto.common.v1.KeyValue',
+      '10': 'attributes'
+    },
+    {
+      '1': 'dropped_attributes_count',
+      '3': 10,
+      '4': 1,
+      '5': 13,
+      '10': 'droppedAttributesCount'
+    },
+    {
+      '1': 'events',
+      '3': 11,
+      '4': 3,
+      '5': 11,
+      '6': '.opentelemetry.proto.trace.v1.Span.Event',
+      '10': 'events'
+    },
+    {
+      '1': 'dropped_events_count',
+      '3': 12,
+      '4': 1,
+      '5': 13,
+      '10': 'droppedEventsCount'
+    },
+    {
+      '1': 'links',
+      '3': 13,
+      '4': 3,
+      '5': 11,
+      '6': '.opentelemetry.proto.trace.v1.Span.Link',
+      '10': 'links'
+    },
+    {
+      '1': 'dropped_links_count',
+      '3': 14,
+      '4': 1,
+      '5': 13,
+      '10': 'droppedLinksCount'
+    },
+    {
+      '1': 'status',
+      '3': 15,
+      '4': 1,
+      '5': 11,
+      '6': '.opentelemetry.proto.trace.v1.Status',
+      '10': 'status'
+    },
   ],
   '3': [Span_Event$json, Span_Link$json],
   '4': [Span_SpanKind$json],
@@ -111,8 +210,21 @@ const Span_Event$json = {
   '2': [
     {'1': 'time_unix_nano', '3': 1, '4': 1, '5': 6, '10': 'timeUnixNano'},
     {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
-    {'1': 'attributes', '3': 3, '4': 3, '5': 11, '6': '.opentelemetry.proto.common.v1.KeyValue', '10': 'attributes'},
-    {'1': 'dropped_attributes_count', '3': 4, '4': 1, '5': 13, '10': 'droppedAttributesCount'},
+    {
+      '1': 'attributes',
+      '3': 3,
+      '4': 3,
+      '5': 11,
+      '6': '.opentelemetry.proto.common.v1.KeyValue',
+      '10': 'attributes'
+    },
+    {
+      '1': 'dropped_attributes_count',
+      '3': 4,
+      '4': 1,
+      '5': 13,
+      '10': 'droppedAttributesCount'
+    },
   ],
 };
 
@@ -123,8 +235,21 @@ const Span_Link$json = {
     {'1': 'trace_id', '3': 1, '4': 1, '5': 12, '10': 'traceId'},
     {'1': 'span_id', '3': 2, '4': 1, '5': 12, '10': 'spanId'},
     {'1': 'trace_state', '3': 3, '4': 1, '5': 9, '10': 'traceState'},
-    {'1': 'attributes', '3': 4, '4': 3, '5': 11, '6': '.opentelemetry.proto.common.v1.KeyValue', '10': 'attributes'},
-    {'1': 'dropped_attributes_count', '3': 5, '4': 1, '5': 13, '10': 'droppedAttributesCount'},
+    {
+      '1': 'attributes',
+      '3': 4,
+      '4': 3,
+      '5': 11,
+      '6': '.opentelemetry.proto.common.v1.KeyValue',
+      '10': 'attributes'
+    },
+    {
+      '1': 'dropped_attributes_count',
+      '3': 5,
+      '4': 1,
+      '5': 13,
+      '10': 'droppedAttributesCount'
+    },
     {'1': 'flags', '3': 6, '4': 1, '5': 7, '10': 'flags'},
   ],
 };
@@ -175,7 +300,14 @@ const Status$json = {
   '1': 'Status',
   '2': [
     {'1': 'message', '3': 2, '4': 1, '5': 9, '10': 'message'},
-    {'1': 'code', '3': 3, '4': 1, '5': 14, '6': '.opentelemetry.proto.trace.v1.Status.StatusCode', '10': 'code'},
+    {
+      '1': 'code',
+      '3': 3,
+      '4': 1,
+      '5': 14,
+      '6': '.opentelemetry.proto.trace.v1.Status.StatusCode',
+      '10': 'code'
+    },
   ],
   '4': [Status_StatusCode$json],
   '9': [
@@ -199,4 +331,3 @@ final $typed_data.Uint8List statusDescriptor = $convert.base64Decode(
     'RlbGVtZXRyeS5wcm90by50cmFjZS52MS5TdGF0dXMuU3RhdHVzQ29kZVIEY29kZSJOCgpTdGF0'
     'dXNDb2RlEhUKEVNUQVRVU19DT0RFX1VOU0VUEAASEgoOU1RBVFVTX0NPREVfT0sQARIVChFTVE'
     'FUVVNfQ09ERV9FUlJPUhACSgQIARAC');
-

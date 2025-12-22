@@ -1,6 +1,6 @@
 // This is a generated file - do not edit.
 //
-// Generated from opentelemetry/proto/collector/logs/v1/logs_service.proto.
+// Generated from opentelemetry/proto/collector/metrics/v1/metrics_service.proto.
 
 // @dart = 3.3
 
@@ -16,112 +16,117 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../../logs/v1/logs.pb.dart' as $0;
+import '../../../metrics/v1/metrics.pb.dart' as $0;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
-class ExportLogsServiceRequest extends $pb.GeneratedMessage {
-  factory ExportLogsServiceRequest({
-    $core.Iterable<$0.ResourceLogs>? resourceLogs,
+class ExportMetricsServiceRequest extends $pb.GeneratedMessage {
+  factory ExportMetricsServiceRequest({
+    $core.Iterable<$0.ResourceMetrics>? resourceMetrics,
   }) {
     final result = create();
-    if (resourceLogs != null) result.resourceLogs.addAll(resourceLogs);
+    if (resourceMetrics != null) result.resourceMetrics.addAll(resourceMetrics);
     return result;
   }
 
-  ExportLogsServiceRequest._();
+  ExportMetricsServiceRequest._();
 
-  factory ExportLogsServiceRequest.fromBuffer($core.List<$core.int> data,
+  factory ExportMetricsServiceRequest.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ExportLogsServiceRequest.fromJson($core.String json,
+  factory ExportMetricsServiceRequest.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'ExportLogsServiceRequest',
+      _omitMessageNames ? '' : 'ExportMetricsServiceRequest',
       package: const $pb.PackageName(
-          _omitMessageNames ? '' : 'opentelemetry.proto.collector.logs.v1'),
+          _omitMessageNames ? '' : 'opentelemetry.proto.collector.metrics.v1'),
       createEmptyInstance: create)
-    ..pPM<$0.ResourceLogs>(1, _omitFieldNames ? '' : 'resourceLogs',
-        subBuilder: $0.ResourceLogs.create)
+    ..pPM<$0.ResourceMetrics>(1, _omitFieldNames ? '' : 'resourceMetrics',
+        subBuilder: $0.ResourceMetrics.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ExportLogsServiceRequest clone() => deepCopy();
+  ExportMetricsServiceRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ExportLogsServiceRequest copyWith(
-          void Function(ExportLogsServiceRequest) updates) =>
-      super.copyWith((message) => updates(message as ExportLogsServiceRequest))
-          as ExportLogsServiceRequest;
+  ExportMetricsServiceRequest copyWith(
+          void Function(ExportMetricsServiceRequest) updates) =>
+      super.copyWith(
+              (message) => updates(message as ExportMetricsServiceRequest))
+          as ExportMetricsServiceRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static ExportLogsServiceRequest create() => ExportLogsServiceRequest._();
+  static ExportMetricsServiceRequest create() =>
+      ExportMetricsServiceRequest._();
   @$core.override
-  ExportLogsServiceRequest createEmptyInstance() => create();
+  ExportMetricsServiceRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ExportLogsServiceRequest getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<ExportLogsServiceRequest>(create);
-  static ExportLogsServiceRequest? _defaultInstance;
+  static ExportMetricsServiceRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ExportMetricsServiceRequest>(create);
+  static ExportMetricsServiceRequest? _defaultInstance;
 
-  /// An array of ResourceLogs.
+  /// An array of ResourceMetrics.
   /// For data coming from a single resource this array will typically contain one
   /// element. Intermediary nodes (such as OpenTelemetry Collector) that receive
   /// data from multiple origins typically batch the data before forwarding further and
   /// in that case this array will contain multiple elements.
   @$pb.TagNumber(1)
-  $pb.PbList<$0.ResourceLogs> get resourceLogs => $_getList(0);
+  $pb.PbList<$0.ResourceMetrics> get resourceMetrics => $_getList(0);
 }
 
-class ExportLogsServiceResponse extends $pb.GeneratedMessage {
-  factory ExportLogsServiceResponse({
-    ExportLogsPartialSuccess? partialSuccess,
+class ExportMetricsServiceResponse extends $pb.GeneratedMessage {
+  factory ExportMetricsServiceResponse({
+    ExportMetricsPartialSuccess? partialSuccess,
   }) {
     final result = create();
     if (partialSuccess != null) result.partialSuccess = partialSuccess;
     return result;
   }
 
-  ExportLogsServiceResponse._();
+  ExportMetricsServiceResponse._();
 
-  factory ExportLogsServiceResponse.fromBuffer($core.List<$core.int> data,
+  factory ExportMetricsServiceResponse.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ExportLogsServiceResponse.fromJson($core.String json,
+  factory ExportMetricsServiceResponse.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'ExportLogsServiceResponse',
+      _omitMessageNames ? '' : 'ExportMetricsServiceResponse',
       package: const $pb.PackageName(
-          _omitMessageNames ? '' : 'opentelemetry.proto.collector.logs.v1'),
+          _omitMessageNames ? '' : 'opentelemetry.proto.collector.metrics.v1'),
       createEmptyInstance: create)
-    ..aOM<ExportLogsPartialSuccess>(1, _omitFieldNames ? '' : 'partialSuccess',
-        subBuilder: ExportLogsPartialSuccess.create)
+    ..aOM<ExportMetricsPartialSuccess>(
+        1, _omitFieldNames ? '' : 'partialSuccess',
+        subBuilder: ExportMetricsPartialSuccess.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ExportLogsServiceResponse clone() => deepCopy();
+  ExportMetricsServiceResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ExportLogsServiceResponse copyWith(
-          void Function(ExportLogsServiceResponse) updates) =>
-      super.copyWith((message) => updates(message as ExportLogsServiceResponse))
-          as ExportLogsServiceResponse;
+  ExportMetricsServiceResponse copyWith(
+          void Function(ExportMetricsServiceResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as ExportMetricsServiceResponse))
+          as ExportMetricsServiceResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static ExportLogsServiceResponse create() => ExportLogsServiceResponse._();
+  static ExportMetricsServiceResponse create() =>
+      ExportMetricsServiceResponse._();
   @$core.override
-  ExportLogsServiceResponse createEmptyInstance() => create();
+  ExportMetricsServiceResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ExportLogsServiceResponse getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<ExportLogsServiceResponse>(create);
-  static ExportLogsServiceResponse? _defaultInstance;
+  static ExportMetricsServiceResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ExportMetricsServiceResponse>(create);
+  static ExportMetricsServiceResponse? _defaultInstance;
 
   /// The details of a partially successful export request.
   ///
@@ -139,79 +144,81 @@ class ExportLogsServiceResponse extends $pb.GeneratedMessage {
   /// `error_message` = "") is equivalent to it not being set/present. Senders
   /// SHOULD interpret it the same way as in the full success case.
   @$pb.TagNumber(1)
-  ExportLogsPartialSuccess get partialSuccess => $_getN(0);
+  ExportMetricsPartialSuccess get partialSuccess => $_getN(0);
   @$pb.TagNumber(1)
-  set partialSuccess(ExportLogsPartialSuccess value) => $_setField(1, value);
+  set partialSuccess(ExportMetricsPartialSuccess value) => $_setField(1, value);
   @$pb.TagNumber(1)
   $core.bool hasPartialSuccess() => $_has(0);
   @$pb.TagNumber(1)
   void clearPartialSuccess() => $_clearField(1);
   @$pb.TagNumber(1)
-  ExportLogsPartialSuccess ensurePartialSuccess() => $_ensure(0);
+  ExportMetricsPartialSuccess ensurePartialSuccess() => $_ensure(0);
 }
 
-class ExportLogsPartialSuccess extends $pb.GeneratedMessage {
-  factory ExportLogsPartialSuccess({
-    $fixnum.Int64? rejectedLogRecords,
+class ExportMetricsPartialSuccess extends $pb.GeneratedMessage {
+  factory ExportMetricsPartialSuccess({
+    $fixnum.Int64? rejectedDataPoints,
     $core.String? errorMessage,
   }) {
     final result = create();
-    if (rejectedLogRecords != null)
-      result.rejectedLogRecords = rejectedLogRecords;
+    if (rejectedDataPoints != null)
+      result.rejectedDataPoints = rejectedDataPoints;
     if (errorMessage != null) result.errorMessage = errorMessage;
     return result;
   }
 
-  ExportLogsPartialSuccess._();
+  ExportMetricsPartialSuccess._();
 
-  factory ExportLogsPartialSuccess.fromBuffer($core.List<$core.int> data,
+  factory ExportMetricsPartialSuccess.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory ExportLogsPartialSuccess.fromJson($core.String json,
+  factory ExportMetricsPartialSuccess.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'ExportLogsPartialSuccess',
+      _omitMessageNames ? '' : 'ExportMetricsPartialSuccess',
       package: const $pb.PackageName(
-          _omitMessageNames ? '' : 'opentelemetry.proto.collector.logs.v1'),
+          _omitMessageNames ? '' : 'opentelemetry.proto.collector.metrics.v1'),
       createEmptyInstance: create)
-    ..aInt64(1, _omitFieldNames ? '' : 'rejectedLogRecords')
+    ..aInt64(1, _omitFieldNames ? '' : 'rejectedDataPoints')
     ..aOS(2, _omitFieldNames ? '' : 'errorMessage')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ExportLogsPartialSuccess clone() => deepCopy();
+  ExportMetricsPartialSuccess clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ExportLogsPartialSuccess copyWith(
-          void Function(ExportLogsPartialSuccess) updates) =>
-      super.copyWith((message) => updates(message as ExportLogsPartialSuccess))
-          as ExportLogsPartialSuccess;
+  ExportMetricsPartialSuccess copyWith(
+          void Function(ExportMetricsPartialSuccess) updates) =>
+      super.copyWith(
+              (message) => updates(message as ExportMetricsPartialSuccess))
+          as ExportMetricsPartialSuccess;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static ExportLogsPartialSuccess create() => ExportLogsPartialSuccess._();
+  static ExportMetricsPartialSuccess create() =>
+      ExportMetricsPartialSuccess._();
   @$core.override
-  ExportLogsPartialSuccess createEmptyInstance() => create();
+  ExportMetricsPartialSuccess createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static ExportLogsPartialSuccess getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<ExportLogsPartialSuccess>(create);
-  static ExportLogsPartialSuccess? _defaultInstance;
+  static ExportMetricsPartialSuccess getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ExportMetricsPartialSuccess>(create);
+  static ExportMetricsPartialSuccess? _defaultInstance;
 
-  /// The number of rejected log records.
+  /// The number of rejected data points.
   ///
   /// A `rejected_<signal>` field holding a `0` value indicates that the
   /// request was fully accepted.
   @$pb.TagNumber(1)
-  $fixnum.Int64 get rejectedLogRecords => $_getI64(0);
+  $fixnum.Int64 get rejectedDataPoints => $_getI64(0);
   @$pb.TagNumber(1)
-  set rejectedLogRecords($fixnum.Int64 value) => $_setInt64(0, value);
+  set rejectedDataPoints($fixnum.Int64 value) => $_setInt64(0, value);
   @$pb.TagNumber(1)
-  $core.bool hasRejectedLogRecords() => $_has(0);
+  $core.bool hasRejectedDataPoints() => $_has(0);
   @$pb.TagNumber(1)
-  void clearRejectedLogRecords() => $_clearField(1);
+  void clearRejectedDataPoints() => $_clearField(1);
 
   /// A developer-facing human-readable message in English. It should be used
   /// either to explain why the server rejected parts of the data during a partial
@@ -230,20 +237,20 @@ class ExportLogsPartialSuccess extends $pb.GeneratedMessage {
   void clearErrorMessage() => $_clearField(2);
 }
 
-/// Service that can be used to push logs between one Application instrumented with
-/// OpenTelemetry and an collector, or between an collector and a central collector (in this
-/// case logs are sent/received to/from multiple Applications).
-class LogsServiceApi {
+/// Service that can be used to push metrics between one Application
+/// instrumented with OpenTelemetry and a collector, or between a collector and a
+/// central collector.
+class MetricsServiceApi {
   final $pb.RpcClient _client;
 
-  LogsServiceApi(this._client);
+  MetricsServiceApi(this._client);
 
   /// For performance reasons, it is recommended to keep this RPC
   /// alive for the entire life of the application.
-  $async.Future<ExportLogsServiceResponse> export(
-          $pb.ClientContext? ctx, ExportLogsServiceRequest request) =>
-      _client.invoke<ExportLogsServiceResponse>(
-          ctx, 'LogsService', 'Export', request, ExportLogsServiceResponse());
+  $async.Future<ExportMetricsServiceResponse> export(
+          $pb.ClientContext? ctx, ExportMetricsServiceRequest request) =>
+      _client.invoke<ExportMetricsServiceResponse>(ctx, 'MetricsService',
+          'Export', request, ExportMetricsServiceResponse());
 }
 
 const $core.bool _omitFieldNames =
