@@ -57,7 +57,13 @@ class CollectorExporter implements MetricExporter {
     Uri uri,
     List<MetricData> metrics,
   ) async {
-    _log.info('Exporting ${metrics.length} metrics to $uri');
+    _log.info('=== Sending metrics to OpenTelemetry Collector ===');
+    _log.info('Endpoint: $uri');
+    _log.info('Metrics count: ${metrics.length}');
+    for (final metric in metrics) {
+      _log.fine('  - ${metric.name} (${metric.aggregationType.name}): '
+          '${metric.points.length} data points');
+    }
 
     const maxRetries = 3;
     var retries = 0;
@@ -80,6 +86,8 @@ class CollectorExporter implements MetricExporter {
         _log.info('Response status: ${response.statusCode}');
 
         if (response.statusCode == 200) {
+          _log.info(
+              'Successfully exported ${metrics.length} metrics to collector');
           return;
         }
         // If the response is not 200, log a warning

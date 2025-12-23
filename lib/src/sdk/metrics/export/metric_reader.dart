@@ -4,6 +4,7 @@
 import 'dart:async';
 
 import 'package:fixnum/fixnum.dart';
+import 'package:logging/logging.dart';
 import 'package:opentelemetry/src/sdk/metrics/data/metric_data.dart';
 import 'package:opentelemetry/src/sdk/metrics/export/metric_exporter.dart';
 import 'package:opentelemetry/src/sdk/time_providers/time_provider.dart';
@@ -24,6 +25,8 @@ abstract class MetricReader {
 
 /// A MetricReader that periodically collects and exports metrics.
 class PeriodicExportingMetricReader implements MetricReader {
+  final Logger _log = Logger('opentelemetry.PeriodicExportingMetricReader');
+
   final MetricExporter _exporter;
   final Duration _exportInterval;
   final TimeProvider _timeProvider;
@@ -41,7 +44,12 @@ class PeriodicExportingMetricReader implements MetricReader {
         _exportInterval = exportInterval,
         _timeProvider = timeProvider {
     _lastCollectTime = _timeProvider.now;
-    _timer = Timer.periodic(_exportInterval, (_) => collect());
+    _log.info(
+        'Starting periodic metric export with interval: ${_exportInterval.inSeconds}s');
+    _timer = Timer.periodic(_exportInterval, (_) {
+      _log.info('Periodic export timer triggered');
+      collect();
+    });
   }
 
   /// Registers a metric producer.
@@ -52,6 +60,7 @@ class PeriodicExportingMetricReader implements MetricReader {
   @override
   void collect() {
     if (_isShutdown) {
+      _log.fine('Collect called but reader is already shutdown');
       return;
     }
 
@@ -62,8 +71,14 @@ class PeriodicExportingMetricReader implements MetricReader {
       metrics.addAll(producer.produce(_lastCollectTime, now));
     }
 
+    _log.info(
+        'Collected ${metrics.length} metrics from ${_producers.length} producers');
+
     if (metrics.isNotEmpty) {
+      _log.info('Exporting ${metrics.length} metrics...');
       _exporter.export(metrics);
+    } else {
+      _log.fine('No metrics to export');
     }
 
     _lastCollectTime = now;
@@ -71,19 +86,24 @@ class PeriodicExportingMetricReader implements MetricReader {
 
   @override
   void forceFlush() {
+    _log.info('Force flush requested');
     collect();
   }
 
   @override
   void shutdown() {
     if (_isShutdown) {
+      _log.fine('Shutdown called but reader is already shutdown');
       return;
     }
 
+    _log.info('Shutting down PeriodicExportingMetricReader...');
     forceFlush();
     _isShutdown = true;
     _timer?.cancel();
+    _log.info('Periodic timer cancelled');
     _exporter.shutdown();
+    _log.info('PeriodicExportingMetricReader shutdown complete');
   }
 }
 
