@@ -30,16 +30,17 @@ class SumAggregator extends Aggregator<SumPointData> {
     final key = _attributeKey(attributes);
     final accumulator = _accumulators.putIfAbsent(
       key,
-      () => _SumAccumulator(attributes: attributes),
+      () => _SumAccumulator(attributes: attributes, firstRecordTime: timestamp),
     );
     accumulator.add(value);
   }
 
   @override
   List<SumPointData> collect(Int64 startTime, Int64 endTime) {
+    // For cumulative temporality, use the first recorded timestamp as startTime
     return _accumulators.values.map((acc) {
       return SumPointData(
-        startTime: startTime,
+        startTime: acc.firstRecordTime,
         endTime: endTime,
         attributes: acc.attributes,
         value: acc.value,
@@ -62,9 +63,10 @@ class SumAggregator extends Aggregator<SumPointData> {
 
 class _SumAccumulator {
   final List<api.Attribute> attributes;
+  final Int64 firstRecordTime;
   num value = 0;
 
-  _SumAccumulator({required this.attributes});
+  _SumAccumulator({required this.attributes, required this.firstRecordTime});
 
   void add(num delta) {
     value += delta;
@@ -157,6 +159,7 @@ class HistogramAggregator extends Aggregator<HistogramPointData> {
       () => _HistogramAccumulator(
         attributes: attributes,
         boundaries: _boundaries,
+        firstRecordTime: timestamp,
       ),
     );
     accumulator.record(value);
@@ -164,9 +167,10 @@ class HistogramAggregator extends Aggregator<HistogramPointData> {
 
   @override
   List<HistogramPointData> collect(Int64 startTime, Int64 endTime) {
+    // For cumulative temporality, use the first recorded timestamp as startTime
     return _accumulators.values.map((acc) {
       return HistogramPointData(
-        startTime: startTime,
+        startTime: acc.firstRecordTime,
         endTime: endTime,
         attributes: acc.attributes,
         count: acc.count,
@@ -194,6 +198,7 @@ class HistogramAggregator extends Aggregator<HistogramPointData> {
 class _HistogramAccumulator {
   final List<api.Attribute> attributes;
   final List<double> boundaries;
+  final Int64 firstRecordTime;
   late final List<int> bucketCounts;
   int count = 0;
   num sum = 0;
@@ -203,6 +208,7 @@ class _HistogramAccumulator {
   _HistogramAccumulator({
     required this.attributes,
     required this.boundaries,
+    required this.firstRecordTime,
   }) {
     // Number of buckets = boundaries.length + 1
     bucketCounts = List.filled(boundaries.length + 1, 0);
