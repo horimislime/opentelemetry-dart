@@ -95,6 +95,8 @@ class Meter implements api.Meter, MetricProducer {
           points: points,
         ));
       }
+      // Reset aggregator after collection for delta temporality
+      counter.aggregator.reset();
     }
 
     for (final upDownCounter in _upDownCounters) {
@@ -110,6 +112,8 @@ class Meter implements api.Meter, MetricProducer {
           points: points,
         ));
       }
+      // Reset aggregator after collection for delta temporality
+      upDownCounter.aggregator.reset();
     }
 
     for (final histogram in _histograms) {
@@ -125,6 +129,8 @@ class Meter implements api.Meter, MetricProducer {
           points: points,
         ));
       }
+      // Reset aggregator after collection for delta temporality
+      histogram.aggregator.reset();
     }
 
     for (final gauge in _gauges) {
@@ -140,6 +146,8 @@ class Meter implements api.Meter, MetricProducer {
           points: points,
         ));
       }
+      // Reset aggregator after collection for delta temporality
+      gauge.aggregator.reset();
     }
 
     return metrics;
